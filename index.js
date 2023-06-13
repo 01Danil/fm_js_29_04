@@ -1,16 +1,11 @@
-let string1 = 'I\'m a teacher';
-console.log(string1, ':', typeof string1);
+let number_1 = '5';
+let number_2 = 4;
+console.log(number_1 + number_2);
 
-let age = '32';
+// унарные
+// console.log(+number_1);
+// console.log(-number_1);
 
-let price = '  5  ';
+// console.log(number_1);
 
-
-let num = 8;
-console.log(num, ':', typeof num);
-
-let undef;
-console.log(undef, ':', typeof undef);
-
-let nullValue = null;
-console.log(nullValue, ':', typeof nullValue);
+//конкатинация + 
