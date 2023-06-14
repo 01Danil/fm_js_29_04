@@ -1,64 +1,19 @@
-let number = 12;
+// Logical AND (&&) умножение
+// true && true = true 			1*1=1;
+// false && true = false 		0*1=0;
+// true && false = false 		1*0=0;
+// false && false = false 	0*0=0;
+// Возвращает или первую ложь, или последнюю правду
 
-// number = number + 10;
-number +=10;
+// Logical OR (||) сложение
+// true || true = true 			1+1=2;
+// false || true = true 		0+1=1;
+// true || false = true 		1+0=1;
+// false || false = false 	0+0=0;
+// Возвращает или первую правду, или последнюю ложь
 
-number %=5;
+let logic = 10 && 'false' && 45;
+console.log(logic);
 
-number **=3;
-
-number /= number;
-
-number *= 4;
-
-console.log(number);
-
-
-
-let nameUser = 'Elon';
-// nameUser = nameUser + +' Musk'
-nameUser += ' Musk';
-
-console.log(number, nameUser);
-
-
-// let a=2,b,c,res: Bad practic
-
-
-let a = 2;
-let b;
-let c;
-let res;
-
-
-let number1 = 45;
-let number2 = 12;
-
-console.log(
-	number1 + number2, 
-	number1 - number2, 
-	number1 * number2, 
-	number1 / number2, 
-	number1 % number2
-	);
-
-let number3 = 101;
-let resultBoolean = true;
-let programmingLanguage = 'Java';
-let name = 'Elon Musk';
-let value = null;
-
-number1 = number1++;
-number1 = ++number1;
-console.log(number1);
-number1 = number1--;
-number1 = --number1;
-console.log(number1);
-
-let numberOfTheThirdTask = 23;
-numberOfTheThirdTask += 11;
-numberOfTheThirdTask /=2;
-numberOfTheThirdTask -=1;
-numberOfTheThirdTask *=11;
-numberOfTheThirdTask += 1;
-numberOfTheThirdTask %=5;
+logic = 0 || false || null;
+console.log(logic);
