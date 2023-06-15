@@ -1,10 +1,17 @@
-// function requestNumberAtUser (){
-// 	let number = prompt('enter number', '10');
-// };
-
-// function expression
-const requestNumberAtUser = function () {
-  let number = prompt("enter number", "10");
+const calkSummaTwoNumberReqAtUser = function () {
+  let number1 = prompt("enter number 1", "10");
+  let number2 = prompt("enter number 2", "20");
+	//ошибка: если пустая строка, либо нажали отмена, либо ввели что-то, что не цифры 
+	if(number1 === '' || number2 === '' || number1 === null || number1 === null || isNaN(Number(number1)) || isNaN(Number(number2)) ){
+		//true
+		//обработка ошибки
+		return 'error'
+	}else{
+		//false
+		let summa = Number(number1) + Number(number2);
+		return summa;
+	} 
 };
 
-console.log(requestNumberAtUser);
+let summa = calkSummaTwoNumberReqAtUser()
+console.log(summa);
