@@ -19,11 +19,11 @@ const calkSummaTwoNumber = function (number1, number2) {
 	return number1 + number2; 
 };
 const check = isErrorInputNumber(number1) || isErrorInputNumber(number2);
-if(check){
-	console.log('not possible calc summa')
-}else{
+if(check===false){ //.!check - bad practic
 	const summaUser = calkSummaTwoNumber(Number(number1), Number(number2));
 	console.log(summaUser);
+}else{
+	console.log('not possible calc summa')
 };
 
 
