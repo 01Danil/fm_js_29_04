@@ -1,32 +1,27 @@
+// найти периметр квадрата
+// строна*4
 
-// const number1 = prompt("enter number 1", "10");
-// const number2 = prompt("enter number 2", "20");
-/**
- * Discription function 
- * @param {null|string} num 
+// /**
+//  * 
+//  * @param {number} side 
+//  * @returns {null | number}
+//  */
+// const calcPerimetrSquare = function (side = 0){
+// 	if( side < 0 ){
+// 		return null;
+// 	}
+// 	return side * 4;
+// };
+// const result = calcPerimetrSquare(8);
+// console.log(result);
+
+/** Age check
+ * 
+ * @param {number} age 
  * @returns {boolean}
  */
-const isErrorInputNumber = function(num){
-	return num === '' || num === null || isNaN(Number(num));
-}
-/**
- * Return summa two number.
- * @param {number} number1  default = 1
- * @param {number} number2 default = 2
- * @returns {number}
- */	
-const calkSummaTwoNumber = function (number1=1, number2=2) {
-	return number1 + number2; 
+const isAdult = function (age){
+	return age >=18
 };
-//debugger
-console.log(calkSummaTwoNumber(undefined,45));
-
-// const check = isErrorInputNumber(number1) || isErrorInputNumber(number2);
-// if(check===false){ //.!check - bad practic
-// 	const summaUser = calkSummaTwoNumber(Number(number1), Number(number2));
-// 	console.log(summaUser);
-// }else{
-// 	console.log('not possible calc summa')
-// };
-
-
+const result = isAdult(17);
+console.log(result);
