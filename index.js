@@ -11,7 +11,7 @@
 // };
 // console.log(calkVolumeSfera(23, 3.1415926));
 
-const userInput = prompt ('Enter something');
+const userInput = prompt ('Enter something 1');
 const ValueToUser = function () {
 	if (userInput === null || userInput === '') {
 		return 'Повторите ввод';
@@ -21,10 +21,19 @@ const ValueToUser = function () {
 console.log(ValueToUser());
 
 const f = function () {
-	const input = prompt ('Input something');
+	const input = prompt ('Input something 2');
 	if (input === null || input === '') {
-		return 'Repeat input'
+		return 'Repeat input';
 	}
 	return 'You enter: ' + input;
 };
 console.log(f());
+
+const userValueReturn = function () {
+	const inputValue = prompt ('Enter something 3')
+	if (inputValue) {
+		return 'You enter ' + inputValue;
+	}
+	return 'Repeat input';
+};
+console.log(userValueReturn());
