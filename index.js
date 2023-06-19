@@ -1,25 +1,11 @@
-
-const number1 = prompt ('enter number', '');
-const number2 = prompt ('enter number', '');
 /**
  * 
- * @param {number} number1 
- * @param {number} number2 
- * @returns {boolean}
+ * @param {Number} firstSide 
+ * @param {Number} secondSide 
+ * @param {Number} thirdSide 
+ * @returns {Boolean}
  */
-const numberCheck = function (number1 = 10, number2 = 5){
-	const result = number1 % number2;
-	return result > 0 || result < 0;
+const triangleOnThreeSides = function (firstSide = 3, secondSide = 4, thirdSide = 5) {
+	return firstSide + secondSide > thirdSide && secondSide + thirdSide > firstSide && firstSide + thirdSide > secondSide
 };
-const result = numberCheck();
-console.log (result);
-
-
-/**
- * 
- * @param {number} num 
- * @returns {boolean}
- */
-const numberCheck2 = function (num = 0, first = 20, second = 7){
-	return num > first && num % second === 0; 
-}
+console.log(triangleOnThreeSides(1,1,10)); 
