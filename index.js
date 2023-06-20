@@ -1,26 +1,46 @@
-const age = "18"; //prompt()
-// [0 - 3) - baby
-// [3 - 6) - tudler
-// [6 - 13) - children
-// [13 - 18) - tinager
-// [18 - 70)- adult
-// [70 - 100) - oldmen
-// [100 - Infinity) - respect
+// const monthNumber = prompt("Enter month number\n1-winter\n2-spring\n3-summer\n4-fall");
 
-if (isNaN(age) || age < 0) {
+// switch (monthNumber) {
+//   case '1':
+//   case '2':
+//   case '12':
+//     console.log("winter");
+//     break;
+//   case '3':
+//   case '4':
+//   case '5':
+//     console.log("spring");
+//     break;
+//   case '6':
+//   case '7':
+//   case '8':
+//     console.log("summer");
+//     break;
+//   case '9':
+//   case '10':
+//   case '11':
+//     console.log("fall");
+//     break;
+//   default:
+//     console.log("Please, enter the month as a number");
+//     break;
+// }
+// console.log('end')
+
+
+
+const monthNumber = prompt('Enter month number');
+
+if (isNaN(monthNumber) || monthNumber === "") {
   console.log("error");
-} else if (age < 3) {
-  console.log("baby");
-} else if (age < 6) {
-  console.log("tudler");
-} else if (age < 13) {
-  console.log("children");
-} else if (age < 18) {
-  console.log("tinager");
-} else if (age < 70) {
-  console.log("adult");
-} else if (age < 100) {
-  console.log("oldmen");
+} else if (monthNumber === '1' || monthNumber === '2' || monthNumber === '12') {
+  console.log("winter");
+} else if (monthNumber === '3' || monthNumber === '4' || monthNumber === '5') {
+  console.log("spring");
+} else if (monthNumber === '6' || monthNumber === '7' || monthNumber === '8') {
+  console.log("summer");
+} else if (monthNumber === '9' || monthNumber === '10' || monthNumber === '11') {
+  console.log("fall");
 } else {
-  console.log("respect");
+  console.log("Please, enter the month as a number");
 }
