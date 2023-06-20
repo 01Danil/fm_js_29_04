@@ -1,38 +1,26 @@
-const lang = prompt("Choose lang:\n1-ua\n2-it\n3-en\n4-es");
-// debugger
-switch (lang) {
-  case "1":
-  case "ua":
-  case "ukraine":
-    console.log("Привіт");
-    break;
-  case "2":
-  case "it":
-    console.log("Chao");
-    break;
-  case "3":
-  case "en":
-    console.log("Hi");
-    break;
-  case "4":
-  case "es":
-    console.log("Hola");
-    break;
-  default:
-    console.log("Repeat choose");
-    break;
-}
-console.log("end");
+const age = "18"; //prompt()
+// [0 - 3) - baby
+// [3 - 6) - tudler
+// [6 - 13) - children
+// [13 - 18) - tinager
+// [18 - 70)- adult
+// [70 - 100) - oldmen
+// [100 - Infinity) - respect
 
-// if( lang === '1'  || lang === 'ua' ) {
-// 	console.log('Привіт')
-// } else if( lang === '2'  || lang === 'it' ) {
-// 	console.log('Chao')
-// } else if( lang === '3'  || lang === 'en' ) {
-// 	console.log('Hi')
-// } else if( lang === '4'  || lang === 'es' ) {
-// 	console.log('Hola')
-// } else {
-// 	console.log('Repeat choose')
-// }
-// console.log('End')
+if (isNaN(age) || age < 0) {
+  console.log("error");
+} else if (age < 3) {
+  console.log("baby");
+} else if (age < 6) {
+  console.log("tudler");
+} else if (age < 13) {
+  console.log("children");
+} else if (age < 18) {
+  console.log("tinager");
+} else if (age < 70) {
+  console.log("adult");
+} else if (age < 100) {
+  console.log("oldmen");
+} else {
+  console.log("respect");
+}
