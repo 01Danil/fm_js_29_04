@@ -1,33 +1,38 @@
-const userNumber = "22"; 
-debugger //+prompt ('Enter number');
-if (isNaN(userNumber)) {
-  console.log(userNumber, "NAN");
-} else if (userNumber % 5 === 0) {
-  console.log(userNumber, "multiply 5");
-} else if (userNumber % 3 === 0) {
-  console.log(userNumber, "multiply 3");
-} else if (userNumber % 2 === 0) {
-  console.log(userNumber, "multiply 2");
-} else {
-	console.log(userNumber, "multiply 1");
-};
+const lang = prompt("Choose lang:\n1-ua\n2-it\n3-en\n4-es");
+// debugger
+switch (lang) {
+  case "1":
+  case "ua":
+  case "ukraine":
+    console.log("Привіт");
+    break;
+  case "2":
+  case "it":
+    console.log("Chao");
+    break;
+  case "3":
+  case "en":
+    console.log("Hi");
+    break;
+  case "4":
+  case "es":
+    console.log("Hola");
+    break;
+  default:
+    console.log("Repeat choose");
+    break;
+}
+console.log("end");
 
-console.log("thanks");
-
-// if (isNaN(userNumber)) {
-//   console.log("NAN");
+// if( lang === '1'  || lang === 'ua' ) {
+// 	console.log('Привіт')
+// } else if( lang === '2'  || lang === 'it' ) {
+// 	console.log('Chao')
+// } else if( lang === '3'  || lang === 'en' ) {
+// 	console.log('Hi')
+// } else if( lang === '4'  || lang === 'es' ) {
+// 	console.log('Hola')
 // } else {
-//   if (userNumber % 5 === 0) {
-//     console.log("multiply 5");
-//   } else {
-//     if (userNumber % 3 === 0) {
-//       console.log("multiply 3");
-//     } else {
-//       if (userNumber % 2 === 0) {
-//         console.log("multiply 2");
-//       }
-//     }
-//   }
+// 	console.log('Repeat choose')
 // }
-
-
+// console.log('End')
