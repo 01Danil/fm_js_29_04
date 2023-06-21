@@ -1,46 +1,59 @@
-// const monthNumber = prompt("Enter month number\n1-winter\n2-spring\n3-summer\n4-fall");
+const sum = function (num1, num2) {
+  return num1 + num2;
+};
+const sub = function (num1, num2) {
+  return num1 - num2;
+};
+const mul = function (num1, num2) {
+  return num1 * num2;
+};
+const div = function (num1, num2) {
+  return num1 / num2;
+};
+const rem = function (num1, num2) {
+  return num1 % num2;
+};
 
-// switch (monthNumber) {
-//   case '1':
-//   case '2':
-//   case '12':
-//     console.log("winter");
-//     break;
-//   case '3':
-//   case '4':
-//   case '5':
-//     console.log("spring");
-//     break;
-//   case '6':
-//   case '7':
-//   case '8':
-//     console.log("summer");
-//     break;
-//   case '9':
-//   case '10':
-//   case '11':
-//     console.log("fall");
-//     break;
-//   default:
-//     console.log("Please, enter the month as a number");
-//     break;
-// }
-// console.log('end')
+const calculate = function (num1 = 10, num2 = 2, operator = "+") {
+	num1 = pronpt ();
+	num2 = prompt ();
+  if (isNaN(num1 * num2)) {
+    return false;
+  }
 
+  let f = null;
+  switch (operator) {
+    case "+":
+      f = sum;
+      break;
+    case "-":
+      f = sub;
+      break;
+    case "*":
+      f = mul;
+      break;
+    case "/":
+      f = div;
+      break;
+    case "%":
+      f = rem;
+      break;
+    default:
+      return null;
+  }
+  if (typeof f === "function") {
+    return f(num1, num2);
+  }
+  return false;
+};
 
+console.log(typeof calculate);
+console.log(calculate(undefined, undefined, "-"));
+console.log(calculate(4,5,'*'))
 
-const monthNumber = prompt('Enter month number');
+const hightOrderFunction = function ( num1, num2, func) {
+	return func (num1, num2); //div(74,3)
+};
+console.log(hightOrderFunction(4,3,mul));
+console.log(hightOrderFunction(74,3,div));
 
-if (isNaN(monthNumber) || monthNumber === "") {
-  console.log("error");
-} else if (monthNumber === '1' || monthNumber === '2' || monthNumber === '12') {
-  console.log("winter");
-} else if (monthNumber === '3' || monthNumber === '4' || monthNumber === '5') {
-  console.log("spring");
-} else if (monthNumber === '6' || monthNumber === '7' || monthNumber === '8') {
-  console.log("summer");
-} else if (monthNumber === '9' || monthNumber === '10' || monthNumber === '11') {
-  console.log("fall");
-} else {
-  console.log("Please, enter the month as a number");
-}
