@@ -1,17 +1,19 @@
-const calcFactorial = function (number = 1) {
-  if (number < 0) {
-    return null;
-  };
-  if (number === 0 || number === 1) {
-    return 1;
-  };
-  let result = 1;
-  for (let i = 1; i <= number; i++) {
-    result *= i;
+let countTry = "0";
+while (true) {
+  const userInput = prompt("enter password");
+  countTry++;
+  if (isNaN(userInput) || userInput === "" || userInput === null) {
+    alert("enter the password in numbers");
+		break
   }
-  return result;
-};
-
-debugger
-console.log(calcFactorial()); // 120
-console.log(calcFactorial(3)); // 6
+  if (userInput < CORRECT_PASSWORD) {
+    alert("password less");
+  }
+  if (userInput > CORRECT_PASSWORD) {
+    alert("password more");
+  }
+  if (userInput === CORRECT_PASSWORD) {
+    alert("You guessed and made " + countTry + " attempts" );
+    break;
+  }
+}
