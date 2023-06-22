@@ -1,19 +1,20 @@
-let countTry = "0";
-while (true) {
-  const userInput = prompt("enter password");
-  countTry++;
-  if (isNaN(userInput) || userInput === "" || userInput === null) {
-    alert("enter the password in numbers");
-		break
+const calcFactorial = function (number = 1) {
+  if (number < 0) {
+    return null;
   }
-  if (userInput < 12) {
-    alert("password less");
+	if ( number > MAX_SAFE_FACTORIAL) {
+		return false;
+	}
+  if (number === 0 || number === 1) {
+    return 1;
+  };
+  let result = 1n; // bigint
+  for (let i = 1; i <= number; i++) {
+    result *= BigInt(i); // result = 1*1*2*3*4*5
   }
-  if (userInput > 12) {
-    alert("password more");
-  }
-  if (userInput === CORRECT_PASSWORD) {
-    alert("You guessed and made " + countTry + " attempts" );
-    break;
-  }
-}
+  return result;
+};
+// BigInt * BigInt(number) 
+// debugger
+console.log(calcFactorial(5));
+console.log(calcFactorial(15)); // 6 = 1*2*3
