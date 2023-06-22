@@ -6,10 +6,10 @@ while (true) {
     alert("enter the password in numbers");
 		break
   }
-  if (userInput < CORRECT_PASSWORD) {
+  if (userInput < 12) {
     alert("password less");
   }
-  if (userInput > CORRECT_PASSWORD) {
+  if (userInput > 12) {
     alert("password more");
   }
   if (userInput === CORRECT_PASSWORD) {
