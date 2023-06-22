@@ -1,23 +1,17 @@
-
-// debugger
-// let countTry = 0; 																		// i
-// while (countTry < MAX_TRY) { 												// i < MAX_TRY
-//   const userInput = prompt("enter password", '***');
-//   countTry++; 																				// i++
-// 	alert('try = ' + countTry);
-//   if (userInput === CORRECT_PASSWORD) {
-//     alert("welcome");
-//     break;
-//   }
-// }
-
-
-
-for (let i = 1; i <= MAX_TRY; i++) {
-  const userInput = prompt("enter password", "***");
-  alert("try = " + i);
-  if (userInput === CORRECT_PASSWORD) {
-    alert("welcome");
-    break;
+const calcFactorial = function (number = 1) {
+  if (number < 0) {
+    return null;
+  };
+  if (number === 0 || number === 1) {
+    return 1;
+  };
+  let result = 1;
+  for (let i = 1; i <= number; i++) {
+    result *= i;
   }
-}
+  return result;
+};
+
+debugger
+console.log(calcFactorial()); // 120
+console.log(calcFactorial(3)); // 6
