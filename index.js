@@ -33,3 +33,6 @@ const createMultTable = function (limit = 9) {
 };
 const table = createMultTable();
 console.log(table);
+
+const str = '2*3';
+console.log(table[str]);
