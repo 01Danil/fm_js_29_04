@@ -1,14 +1,32 @@
 "use strict";
-/**
- *
- * @param {function} howSay
- * @param {string} word
- */
-function sayWord(howSay, word = "qwerty") {
-  howSay(word);
-}
+const arr = [1, 2, 3, 4, 5];
+const isIvent = function (elem) {
+  return elem % 2 === 0;
+};
+const newArr = arr.filter(isIvent);
+console.log(newArr);
 
-sayWord(console.log, "asd");
-// sayWord(alert, "dog");
-// sayWord(prompt, "dog");
-// sayWord(confirm, "dog");
+// function sayWord (howSay, whatSay){}
+
+// function log(n) {
+//   console.log(n);
+//   return; //undefined
+// }
+
+// for (let i = 0; i < arr.length; i++) {
+//   log(arr[i]);
+// }
+// // debugger
+// arr.forEach(log);
+
+// arr.forEach(
+// 		function (element) {
+// 		return element + 5;
+// 	}
+// );
+
+// const users = [{}, {}, {}];
+// users.forEach(function (user) {
+//   user.stars = 1;
+// });
+// console.log(users);

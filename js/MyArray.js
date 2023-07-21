@@ -19,8 +19,33 @@ function MyArrayPrototype() {
   };
   this.forEach = function (callback) {
     for (let i = 0; i < this.length; i++) {
-			callback(this[i]);
+      callback(this[i], i, this);
     }
+  };
+  this.filter = function (callback) {
+    const newMyArray = new MyArray();
+    for (let i = 0; i < this.length; i++) {
+      if (callback(this[i], i, this)) {
+        newMyArray.push(this[i]);
+      }
+    }
+    return newMyArray;
+  };
+  this.some = function (callback) {
+    for (let i = 0; i < this.length; i++) {
+      if (callback(this[i], i, this)) {
+        return true;
+      }
+    }
+    return false;
+  };
+  this.every = function (callback) {
+    for (let i = 0; i < this.length; i++) {
+      if (callback(this[i], i, this) === false) {
+        return false;
+      }
+    }
+    return true;
   };
 }
 // конструктор объекта с данными
@@ -32,10 +57,14 @@ function MyArray() {
 }
 
 function log(n) {
-  console.log(n*n);
+  console.log(n * n);
 }
 
 MyArray.prototype = new MyArrayPrototype();
 
 const myArray = new MyArray(1, 2, 3, 8, 5); // 5
-myArray.forEach(log)
+// myArray.forEach(log);
+const newArray = myArray.filter(function (elem) {
+  return elem > 5;
+});
+console.log(newArray);
