@@ -1,32 +1,72 @@
 "use strict";
-const arr = [1, 2, 3, 4, 5];
-const isIvent = function (elem) {
-  return elem % 2 === 0;
+
+function User(fname, sname, age, isMale, email, isSubscribing = false) {
+  this.fname = fname;
+  this.sname = sname;
+  this.age = age;
+  this.isMale = isMale;
+  this.email = email;
+  this.isSubscribing = isSubscribing;
+}
+function UserPrototype() {
+  this.getFullName = function () {
+    return `${this.fname} ${this.sname}`;
+  };
+  this.filter = function (callback) {};
+}
+User.prototype = new UserPrototype();
+const createRandomUsers = function (amount = 1) {
+  const db = [];
+  for (let i = 0; i < amount; i++) {
+    const user = new User(
+      `Name${i}`,
+      `Sname${i}`,
+      Math.floor(Math.random() * (80 - 20)) + 20, // [20...80}
+      Math.random() > 0.5, // true
+      `email${i}@gmail.com`
+    );
+    db.push(user);
+  }
+  return db;
 };
-const newArr = arr.filter(isIvent);
-console.log(newArr);
 
-// function sayWord (howSay, whatSay){}
+const users = createRandomUsers(50);
+console.table(users);
 
-// function log(n) {
-//   console.log(n);
-//   return; //undefined
-// }
+/* получить массив полных имен пользователей используя метод map */
+const newUser = users.map(function (user) {
+  return user.getFullName();
+});
+console.table(newUser);
 
-// for (let i = 0; i < arr.length; i++) {
-//   log(arr[i]);
-// }
-// // debugger
-// arr.forEach(log);
+/* получить массив пользователей, старше 65, используя filter */
+const newOldUser = users.filter(function (user) {
+  return user.age > OLD_AGE; // true | false
+});
+console.table(newOldUser);
 
-// arr.forEach(
-// 		function (element) {
-// 		return element + 5;
-// 	}
-// );
+/* получить массив пользователей female, используя filter */
+const newFemaleUsers = users.filter(function (user) {
+  return user.isMale === false;
+});
+console.table(newFemaleUsers);
 
-// const users = [{}, {}, {}];
-// users.forEach(function (user) {
-//   user.stars = 1;
-// });
-// console.log(users);
+/* зарандомить подписку у пользователя 
+используя forEach */
+users.forEach(function (user) {
+  user.isSubscribing = Math.random() > 0.5; // true || false
+});
+console.table(users);
+
+// получить массив бабушек с подпиской
+const oldFemaleUsersWithSubscribing = users
+  .filter(function (user) {
+    return user.isMale === false;
+  })
+  .filter(function (user) {
+    return user.age > OLD_AGE;
+  })
+  .filter(function (user) {
+		return user.isSubscribing;
+  });
+console.table(oldFemaleUsersWithSubscribing);
