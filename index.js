@@ -1,47 +1,32 @@
 "use strict";
 
-const f1 = function (n1, ...numbers) {
-  console.log(n1);
-  console.log(numbers);
-};
-const f2 = (n1, ...rest) => {
-  console.log(n1);
-  console.log(rest);
-};
+// recursion
+// рекурсия небезопасна !!!
+// первым описываем базовый случай !!!
 
-f1(1, 2, 3);
-f2(4, 8, 9);
-
-const sum1 = (...args) => {
-  let result = null;
-  for (let i = 0; i < args.length; i++) {
-    result += args[i];
+function recursion(num) {
+  if (num === 0 || num < 0) {
+    return;
   }
-  return result;
+  console.log(num);
+  recursion(num - 1);
+}
+
+recursion(4);
+
+console.log("Info!!!");
+
+/*
+4! = 4 * 3!
+3! = 3 * 2!
+2! = 2 * 1!
+1! = 1
+*/
+
+const factorial = (n) => {
+  if (n === 1 || n === 0) {
+    return 1;
+  }
+	return n*factorial(n-1)
 };
-console.log(sum1(3, 3, 5));
-
-const sum2 = (...args) => {
-  let result = null;
-  args.forEach((number) => {
-    result += number;
-  });
-  return result;
-};
-console.log(sum2(5, 3));
-
-const sum3 = (...args) =>
-  args.reduce((result, number) => result + number, null);
-// console.log(sum3(1,2));
-
-const arrNums = [1, 5, 9, 5, 8, 9];
-console.log(sum3(...arrNums));
-console.log(sum3(1, 5, 9, 5, 8, 9));
-
-const a1 = [5, 5, 5, 5];
-const arrResult = [...a1, 888, ...arrNums];
-console.log(arrResult);
-
-
-// ...rest - оператор используется при создании функции, собирает массив (остаточные параметры) - const sum1 = (...args) => {}
-// ...spred - оператор вызывает функцию разбирают массив на элементы (называется оператором расширения)- console.log(sum3(...arrNums));
+console.log(factorial(3))
