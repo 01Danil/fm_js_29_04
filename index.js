@@ -1,19 +1,16 @@
 "use strict";
 
-function show(header) {
-  console.log(this);
-  console.log(header, "|", this.title);
-}
+const sum = (n1, n2) => {
+  return n1 + n2;
+};
+const sum2 = (n1, n2) => n1 + n2;
 
-const site = {
-  title: "Green site",
-  headers: ["title 1", "About us", "Portfolio"],
-  showHeaders() {
-    console.log(this);
-		const test = show.bind(this)
-		console.dir(test)
-    this.headers.forEach(test);
-  },
+console.log(sum(1, 2));
+console.log(sum2(1, 2));
+
+const square = (n = 4) => {
+  console.log(n * n);
+  return n * n;
 };
 
-site.showHeaders();
+console.log(square());
