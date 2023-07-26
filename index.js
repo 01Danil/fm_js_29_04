@@ -1,8 +1,8 @@
 "use strict";
 
-const f1 = function (n1, ...rest) {
+const f1 = function (n1, ...numbers) {
   console.log(n1);
-  console.log(rest);
+  console.log(numbers);
 };
 const f2 = (n1, ...rest) => {
   console.log(n1);
@@ -43,5 +43,5 @@ const arrResult = [...a1, 888, ...arrNums];
 console.log(arrResult);
 
 
-// ...rest - оператор используется при создании функции - const sum1 = (...args) => {}
-// ...spret - оператор вызывает функцию - console.log(sum3(...arrNums));
+// ...rest - оператор используется при создании функции, собирает массив (остаточные параметры) - const sum1 = (...args) => {}
+// ...spred - оператор вызывает функцию разбирают массив на элементы (называется оператором расширения)- console.log(sum3(...arrNums));
