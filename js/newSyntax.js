@@ -1,6 +1,7 @@
 "use strict";
 
 class User {
+  #age; // декларация приватного свойства - обратиться можно только в классе 
   /**
    *
    * @param {string} name
@@ -16,7 +17,19 @@ class User {
     }
     this.name = name;
     this.sname = sname;
-    this.age = age;
+    this.#age = age;
+  }
+  getAge() {
+    return this.#age;
+  }
+  setAge(age) {
+    if (typeof age !== "number") {
+      throw new TypeError("value must be number");
+    }
+    if (age < 0 || age > MAX_AGE) {
+      throw new RangeError(`range must be: 0 ... ${MAX_AGE}`);
+    }
+    this.#age = age;
   }
   getFullName() {
     return `${this.name} ${this.sname}`;
@@ -26,9 +39,11 @@ class User {
   }
 }
 
-const userNew = new User("Tim", "Le", 50);
+const userNew = new User("Tim", "Le", 55);
 const userNew2 = new User("Tom", "Bom", 25);
-console.log(userNew.getFullName());
+userNew.setAge(12);
+console.log(userNew.getAge());
+console.log(userNew2);
 
 class Woker {
   constructor(name, sname, rate, days) {
