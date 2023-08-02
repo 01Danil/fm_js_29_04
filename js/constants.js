@@ -4,3 +4,6 @@ const MAX_SAFE_FACTORIAL = 50;
 const OLD_AGE = 65;
 const ADULT_AGE = 18;
 const MAX_AGE = 150;
+const MaxWorkingDays = 31;
+const MIN_LATTER = 2;
+const MAX_LETTER = 15;
