@@ -117,6 +117,6 @@ class Woker {
   }
 }
 
-const newWoker = new Woker("Elton", "Jon", -25, 24);
+const newWoker = new Woker("Elton", "Jon", 25, 24);
 console.log(newWoker.getSalary());
 console.log(newWoker);
