@@ -56,11 +56,15 @@ function MyArray() {
   }
 }
 
+MyArray.isMyArray = function (obj) {
+  return obj instanceof MyArray;
+};
+
+MyArray.prototype = new MyArrayPrototype();
+
 function log(n) {
   console.log(n * n);
 }
-
-MyArray.prototype = new MyArrayPrototype();
 
 const myArray = new MyArray(1, 2, 3, 8, 5); // 5
 // myArray.forEach(log);
