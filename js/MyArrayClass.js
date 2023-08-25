@@ -1,4 +1,22 @@
 "use strict";
+/*
+наследование
+инкапсуляция
+полиморфизм
+*/
+
+class MyArrayIterator {
+  constructor(myArray) {
+    this.collection = myArray;
+    this.index = 0;
+  }
+  next() {
+    return {
+      value: this.collection[this.index++], // current elemtnt
+      done: this.index > this.collection.length, // true | false
+    };
+  }
+}
 class MyArray {
   constructor() {
     this.length = 0;
@@ -68,39 +86,27 @@ class MyArray {
   flat(depth = 1) {
     depth = Math.floor(depth);
     let result = new MyArray();
-    this.forEach((elem) => { // this[i] === elem
+    this.forEach((elem) => {
+      // this[i] === elem
       if (MyArray.isMyArray(elem) && depth > 0) {
         result = result.concat(elem.flat(depth - 1));
       } else if (elem !== undefined) {
         result.push(elem);
       }
     });
-    // for (let i = 0; i < this.length; i++) {
-    //   const isArray = MyArray.isMyArray(this[i]);
-    //   if (isArray && depth > 0) {
-    // 		const newSubResult = this[i].flat(depth - 1)
-    // 		result = result.concat(newSubResult);
-    //   } else if (this[i] !== undefined) {
-    //     result.push(this[i]);
-    //   }
-    // }
     return result;
+  }
+	[Symbol.iterator]() {
+    return new MyArrayIterator(this);;
   }
   static isMyArray(obj) {
     return obj instanceof MyArray;
   }
 }
 
-const myArray1 = new MyArray(
-  1,
-  undefined,
-  new MyArray(
-    2,
-    undefined,
-    2,
-    new MyArray(3, undefined, 3, new MyArray(4, 4, 4)),
-    2
-  ),
-  1
-);
-console.log(myArray1.flat(2));
+const myArray1 = new MyArray(5, 2, 7, 8);
+const myArray2 = new MyArray(...myArray1);
+console.log(...myArray1);
+for (const elem of myArray1) {
+  console.log(elem);
+}

@@ -1,6 +1,6 @@
 "use strict";
 
-const symbol1 = Symbol("metka for dev"); // 42343rewfewds342
+const symbol1 = Symbol("metka for dev");
 const symbol2 = Symbol("metka for dev");
 
 const obj = {
@@ -10,5 +10,15 @@ const obj = {
   [symbol1]: "qwerty",
 };
 
-// delete obj.prop1;
-// delete obj[symbol1];
+const arr = [1, 2, 3, 4];
+// for (const iterator of arr) {
+//   console.log(iterator);
+// }
+// console.log(...arr);
+
+
+const arrMy = new MyArray(1,2,3,4);
+// for (const iterator of arrMy) {
+//   console.log(iterator);
+// }
+// console.log(...arr);
