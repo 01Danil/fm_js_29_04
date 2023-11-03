@@ -1,17 +1,19 @@
 "use strict";
 
-class LinkedListIterator{
-	constructor(list){
-		this.collection = list;
-		this.curentElement = null;
-	}
-	next(){
-		this.curentElement = this.curentElement ? this.curentElement.next : this.collection.head;
-		return {
-			value: this.curentElement ? this.curentElement.value : undefined, // очередной елемент нашего списка 
-			done: (this.curentElement === null), // boolean
-		}
-	}
+class LinkedListIterator {
+  constructor(list) {
+    this.collection = list;
+    this.curentElement = null;
+  }
+  next() {
+    this.curentElement = this.curentElement
+      ? this.curentElement.next
+      : this.collection.head;
+    return {
+      value: this.curentElement ? this.curentElement.value : undefined, // очередной елемент нашего списка
+      done: this.curentElement === null, // boolean
+    };
+  }
 }
 
 class ListItem {
@@ -29,12 +31,13 @@ class ListItem {
 }
 
 class LinkedList {
-  constructor(...args) { // args -> array
+  constructor(...args) {
+    // rest -> args = [1, true, null, "qwe", 5]
     this.lenght = 0;
     this.head = null;
     this.tail = null;
     for (const argument of args) {
-    	this.push(argument);
+      this.push(argument);
     }
   }
   push(value) {
@@ -43,19 +46,29 @@ class LinkedList {
       this.head = newListItem;
       this.tail = newListItem;
     } else {
-			newListItem.prev = this.tail;
-			this.tail.next = newListItem;
-			this.tail = newListItem;
+      newListItem.prev = this.tail;
+      this.tail.next = newListItem;
+      this.tail = newListItem;
     }
-		return ++this.lenght;
+    return ++this.lenght;
   }
-	[Symbol.iterator](){
-		return new LinkedListIterator(this);
-	}
+  pop() {
+    if (this.lenght === 1) {
+      this.head = null;
+      this.tail = null;
+      this.lenght = 0;
+    } else {
+      this.tail = this.tail.prev;
+      this.tail.next = null;
+    }
+  }
+  [Symbol.iterator]() {
+    return new LinkedListIterator(this);
+  }
 }
 
-const list = new LinkedList(1, true, null, "qwe", 5);
-console.log(...list)
-for (const item of list) {
-	console.log(item)
-}
+// const list = new LinkedList(1, true, null, "qwe", 5);
+// console.log(...list)
+// for (const item of list) {
+// 	console.log(item)
+// }
