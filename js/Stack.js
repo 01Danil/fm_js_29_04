@@ -18,8 +18,6 @@ class Stack {
     return this._size === 0;
   }
   push(argument) {
-    // const index = "_" + this.size;
-    // this[index] = argument;
     if (this.size >= this.maxSize) {
       throw new RangeError("stack overflow!");
     }
@@ -34,10 +32,8 @@ class Stack {
     if (this.isEmpty) {
       return;
     }
-    const deletedElement = this.pick();
-    delete this.pick();
-    // const deletedElement = this[`_${this.size - 1}`];
-    // delete this[`_${this.size - 1}`];
+    const deletedElement = this[`_${this.size - 1}`];
+    delete this[`_${this.size - 1}`];
     this._size--;
     return deletedElement;
   }
