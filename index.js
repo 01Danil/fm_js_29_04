@@ -43,18 +43,13 @@ const options = {
 const checkSequence = (str, options) => {
   const brackets = options.brackets;
   const closesBrackets = Object.values(brackets);
-  const stack = new Stack();
+  const stack = new Stack(str.length);
   for (const symbol of str) {
     if (brackets[symbol] !== undefined) {
       stack.push(symbol);
       continue;
     }
-    // if (stack.isEmpty) {
-    //   return false;
-    // }
-    const lastOfStack = stack.pick();
-    const correctSymbol = brackets[lastOfStack];
-    if (symbol === correctSymbol) {
+    if (symbol === brackets[stack.pick()]) {
       stack.pop();
     } else if (closesBrackets.includes(symbol)) {
       return false;
