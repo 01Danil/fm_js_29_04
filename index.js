@@ -1,23 +1,31 @@
 "use strict";
 
-const symbol = Symbol("important property!");
-const obj = {
-  1: "one",
-  one: 456,
-  first: 7,
-  [symbol]: "password",
-  1: "one",
+const dictionary = new Map();
+dictionary.set("кіт", "cat");
+dictionary.set("привіт", "Hello");
+dictionary.set("голова", "head");
+dictionary.set("день", "day");
+dictionary.set("в'язати", "bind");
+dictionary.set("донька", "daughter");
+dictionary.set("причесати", "comb");
+dictionary.set("ходити", "walk");
+dictionary.set("кохання", "love");
+dictionary.set("поруч", "near");
+dictionary.set("подобатися", "like");
+dictionary.set("літо", "summer");
+
+const str1 =
+  "Донька причесати люба мила гарна кіт Літо поруч Голова подобатися поруч кохання";
+const translate = (str, dict) => {
+  const lowerStr = str.toLowerCase();
+  const words = lowerStr.split(" "); // донька
+  const wordsTransleted = words.map((word) => {
+    if (dict.has(word)) {
+      return dict.get(word);
+    }
+    return word;
+  });
+  return wordsTransleted.join(" ");
 };
-obj.one = 777;
 
-const myMap = new Map();
-
-myMap.set(obj, "Obj");
-myMap.set("1", "one");
-myMap.set(1, 101);
-
-myMap.set("1", "first");
-myMap.delete('1')
-console.log(myMap.get("1"));
-
-console.log(myMap);
+console.log(translate(str1, dictionary));
