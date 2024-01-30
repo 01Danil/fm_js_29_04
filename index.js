@@ -1,51 +1,68 @@
 "use strict";
 
-const dictionary = new Map();
-dictionary.set("кіт", "cat");
-dictionary.set("привіт", "Hello");
-dictionary.set("голова", "head");
-dictionary.set("день", "day");
-dictionary.set("в'язати", "bind");
-dictionary.set("донька", "daughter");
-dictionary.set("причесати", "comb");
-dictionary.set("ходити", "walk");
-dictionary.set("кохання", "love");
-dictionary.set("поруч", "near");
-dictionary.set("подобатися", "like");
-dictionary.set("літо", "summer");
+// Деструктуризация - способ создать переменную
 
-const str1 =
-  "Донька причесати люба мила гарна кіт Літо поруч Голова подобатися поруч кохання";
-const translate = (str, dict, separator = " ") => {
-  return str
-    .toLowerCase()
-    .split(separator)
-    .map((word) => (dict.has(word) ? dict.get(word) : word))
-    .join(separator);
+// const fullName = (user) => {
+//   return `${user.commonInfo.name} ${user.commonInfo.sname}`;
+// };
+
+// const fullName = ({ commonInfo: { name, sname } }) => {
+//   return `${name} ${sname}`;
+// };
+
+const fullName = ({
+  commonInfo: { sname },
+  contactInfo: {
+    phone: { work: phoneWork },
+  },
+}) => {
+  return `${sname} ${phoneWork}`;
 };
 
-// console.log(translate(str1, dictionary));
+const user = {
+  commonInfo: {
+    id: 1,
+    name: "Elon",
+    sname: "Musk",
+    bday: {
+      day: 28,
+      month: 6,
+      year: 1971,
+    },
+  },
+  contactInfo: {
+    phone: {
+      home: "123-23-23",
+      work: "456-45-45",
+    },
+    adress: {
+      country: "USA",
+      town: "NY",
+    },
+    email: "elon@gmail.com",
+  },
+  professional: "engineer",
+};
 
-const iterKeys = dictionary.keys();
-const ArrKeysDict = [...iterKeys];
-// for (const iterator of dictionary.keys()) {
-//   ArrKeysDict.push(iterator);
-// }
+const { professional, ...restUser } = user; // второй случай оператора ...rest
 
-const arrValuesDict = [...dictionary.values()];
+const arr = [1000, 2, 78, 5, 6, 445];
+const [first, ...restArr] = arr;
+const [,,third,,qwe] = arr;
 
-const arr1 = [1, 2, 3, 5, 9, 96, 3, 5, 1, 2];
-const arr2 = [1, 8, 3, 5, 9, 967];
-const arr3 = [...arr1, ...arr2];
+// const {
+//   professional,
+//   contactInfo: { email },
+//   commonInfo: {
+//     bday: { day: userBDay },
+//   },
+// } = user;
+// console.log(email);
+// console.log(professional);
+// console.log(userBDay);
 
-const mySet = new Set([...arr1, ...arr2]);
+// const { professional: userProf } = user; // userProf - Деструктуризация
+// console.log(userProf);
 
-// const arrUnique = [...mySet];
-const arrUnique = [...new Set([...arr1, ...arr2])];
-
-const arrValuesSet = [...mySet.values()];
-// const arrKeysSet = [...mySet.keys()];
-
-console.log(mySet);
-
-
+// const { professional} = user; // userProf - Деструктуризация
+// console.log(professional);
