@@ -16,16 +16,12 @@ dictionary.set("літо", "summer");
 
 const str1 =
   "Донька причесати люба мила гарна кіт Літо поруч Голова подобатися поруч кохання";
-const translate = (str, dict) => {
-  const lowerStr = str.toLowerCase();
-  const words = lowerStr.split(" "); // донька
-  const wordsTransleted = words.map((word) => {
-    if (dict.has(word)) {
-      return dict.get(word);
-    }
-    return word;
-  });
-  return wordsTransleted.join(" ");
+const translate = (str, dict, separator = " ") => {
+  return str
+    .toLowerCase()
+    .split(separator)
+    .map((word) => (dict.has(word) ? dict.get(word) : word))
+    .join(separator);
 };
 
 console.log(translate(str1, dictionary));
