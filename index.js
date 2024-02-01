@@ -1,68 +1,39 @@
 "use strict";
 
-// Деструктуризация - способ создать переменную
-
-// const fullName = (user) => {
-//   return `${user.commonInfo.name} ${user.commonInfo.sname}`;
-// };
-
-// const fullName = ({ commonInfo: { name, sname } }) => {
-//   return `${name} ${sname}`;
-// };
-
-const fullName = ({
-  commonInfo: { sname },
-  contactInfo: {
-    phone: { work: phoneWork },
-  },
-}) => {
-  return `${sname} ${phoneWork}`;
+const user11 = {
+	id: 11,
+  name: "Slon",
+  age: 50,
+};
+const user1 = {
+  id: 1,
+  name: "Elon",
+  age: 50,
+};
+const user2 = {
+  id: 2,
+  name: "Elen",
+  age: 40,
 };
 
-const user = {
-  commonInfo: {
-    id: 1,
-    name: "Elon",
-    sname: "Musk",
-    bday: {
-      day: 28,
-      month: 6,
-      year: 1971,
-    },
-  },
-  contactInfo: {
-    phone: {
-      home: "123-23-23",
-      work: "456-45-45",
-    },
-    adress: {
-      country: "USA",
-      town: "NY",
-    },
-    email: "elon@gmail.com",
-  },
-  professional: "engineer",
-};
+const msgElon = ["has", "already", "been", "declared"];
+const msgElen = ["Uncaught", "SyntaxError", "Unexpected", "Hi!"];
 
-const { professional, ...restUser } = user; // второй случай оператора ...rest
+const usersMessage = new Map();
+usersMessage.set(user1, msgElon);
+usersMessage.set(user2, msgElen);
 
-const arr = [1000, 2, 78, 5, 6, 445];
-const [first, ...restArr] = arr;
-const [,,third,,qwe] = arr;
+function getMsgs(user) {
+  if (usersMessage.has(user)) {
+    return usersMessage.get(user).forEach((msg) => {
+      console.log(msg);
+      return;
+    });
+  }
+  console.log("404");
+}
 
-// const {
-//   professional,
-//   contactInfo: { email },
-//   commonInfo: {
-//     bday: { day: userBDay },
-//   },
-// } = user;
-// console.log(email);
-// console.log(professional);
-// console.log(userBDay);
-
-// const { professional: userProf } = user; // userProf - Деструктуризация
-// console.log(userProf);
-
-// const { professional} = user; // userProf - Деструктуризация
-// console.log(professional);
+for (const key of usersMessage.keys()) {
+  console.log(key.name, "says:");
+  getMsgs(key);
+}
